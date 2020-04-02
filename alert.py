@@ -6,16 +6,6 @@ from mail_to_sms import MailToSMS
 from discord_webhook import DiscordWebhook
 
 
-skus = {
-    "16380346": "PowerBlock 50 lb. Adjustable Dumbbell Set",
-    "11465449": "Bowflex SelectTech 552 Dumbbells",
-    "10836482": "Fitness Gear 25 lb Rubber Hex Dumbbell",
-    "10404947": "Fitness Gear 20 lb Cast Hex Dumbbell",
-    "10836480": "Fitness Gear 20 lb Rubber Hex Dumbbell",
-    "10836482": "Fitness Gear 25 lb Rubber Hex Dumbbell",
-    "17683555": "Fitness Gear 65 cm Premium Stability Ball"
-}
-
 links = []
 skus = []
 names = []
