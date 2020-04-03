@@ -62,9 +62,10 @@ def checkOnlineInventory(name, sku, link):
     ats = r['data']['skus'][0]['atsqty']
     message = "Online\nItem: {}\navailable to ship: {}\n{}".format(name, ats, link)
     print("\n",time.strftime('%a %H:%M:%S'), message)
+    sendDiscord("\n"+time.strftime('%a %H:%M:%S') + " " + message, "log")
 
     if(int(ats) > 0):
-        sendDiscord(message)
+        sendDiscord(message, "online")
 
 def checkInstore(zip, name, sku, link):
     url = 'https://availability.dickssportinggoods.com/ws/v2/omni/stores?addr={}&radius=100&uom=imperial&lob=dsg&sku={}&res=locatorsearch&qty=1'.format(zip, sku)
@@ -77,7 +78,6 @@ def checkInstore(zip, name, sku, link):
     if 'data' not in r:
         return
 
-    #print("SKU: {} results: {}".format(sku, r['data']['results']))
     if(len(r['data']['results']) == 0):
         return
 
@@ -87,11 +87,29 @@ def checkInstore(zip, name, sku, link):
 
     message = "Curbside\nItem: {}\nAvailability: {}\nzipcode: {}\n{}".format(name, str(qty), location, link)
     print("\n", time.strftime('%a %H:%M:%S'), message)
-    sendDiscord(message)
+    sendDiscord("\n" + time.strftime('%a %H:%M:%S') +  message, "log")
+    if zip == 97236:
+        sendDiscord(message, "pdx")
+    elif zip == 94806:
+        sendDiscord(message, "sfo")
 
-def sendDiscord(message):
-    webhook = DiscordWebhook(url='https://discordapp.com/api/webhooks/695383280794599454/4rJHjEH0l6JYGgVeGvPgKyOJSjlRmPeCGjdEFPHiMnGkolC1Dtetfuiv4PKD6vLzIpj1', content=message)
-    response = webhook.execute()
+def sendDiscord(message, condition):
+    if "online" in condition:
+        webhook = DiscordWebhook(url='https://discordapp.com/api/webhooks/695662753104265286/cZZEdE8oL_02IsWONpLjQ6onU4fsd74GciKMlF5CPLYMixeZTaF86ZT9qNeN9TyA8SqP', content=message)
+        response = webhook.execute()
+    elif "pdx" in condition:
+        webhook = DiscordWebhook(url='https://discordapp.com/api/webhooks/695662589895639070/_SUd1uygVjsYJFS-sUmVtiEsaUckvjNU9x4KzEn_kLcrrjzZZkX1vHJpm42y6hwwnjdu', content=message)
+        response = webhook.execute()
+    elif "sfo" in condition:
+        webhook = DiscordWebhook(url='https://discordapp.com/api/webhooks/695662684410216580/FUmxam-i3lVbVJkoeBlxoFLQwR7hpNPRafJou0nTWBtPKhLj8eJt_5mT_Kz3Ixn5Gk3k', content=message)
+        response = webhook.execute()
+    elif "log" in condition:
+        webhook = DiscordWebhook(url='https://discordapp.com/api/webhooks/695470195896221776/t_MGwZ3214BEHF2JboM3TkH8cf3mOSwrePeQSOyH15PN32tBYc2lIS-dpTy79w62xllI', content=message)
+        response = webhook.execute()
+    elif "low" in condition:
+        webhook = DiscordWebhook(url='https://discordapp.com/api/webhooks/695671741262987364/56Aoni56NQM5g2N6J_VtZh3NqRdyPc2Lv6kzOEwFGOiW7S4MB-eS7m6O9kdc6sqlVUBv', content=message)
+        response = webhook.execute()
+
 
 if __name__ == "__main__":
     main()
