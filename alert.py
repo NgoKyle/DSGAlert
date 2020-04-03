@@ -88,10 +88,12 @@ def checkInstore(zip, name, sku, link):
     message = "Curbside\nItem: {}\nAvailability: {}\nzipcode: {}\n{}".format(name, str(qty), location, link)
     print("\n", time.strftime('%a %H:%M:%S'), message)
     sendDiscord("\n" + time.strftime('%a %H:%M:%S') +  message, "log")
-    if zip == 97236:
+    if '97236' in zip:
         sendDiscord(message, "pdx")
-    elif zip == 94806:
+    elif '94806' in zip:
         sendDiscord(message, "sfo")
+    else:
+        print("SOMETHING WRONG {}".format(zip))
 
 def sendDiscord(message, condition):
     if "online" in condition:
