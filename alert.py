@@ -92,6 +92,8 @@ def checkInstore(zip, name, sku, link):
         sendDiscord(message, "pdx")
     elif '94806' in zip:
         sendDiscord(message, "sfo")
+    elif '98402' in zip:
+        sendDiscord(message, "sea")
     else:
         print("SOMETHING WRONG {}".format(zip))
 
@@ -104,6 +106,9 @@ def sendDiscord(message, condition):
         response = webhook.execute()
     elif "sfo" in condition:
         webhook = DiscordWebhook(url='https://discordapp.com/api/webhooks/695662684410216580/FUmxam-i3lVbVJkoeBlxoFLQwR7hpNPRafJou0nTWBtPKhLj8eJt_5mT_Kz3Ixn5Gk3k', content=message)
+        response = webhook.execute()
+    elif "sea" in condition:
+        webhook = DiscordWebhook(url='https://discordapp.com/api/webhooks/695861616394371124/LsQ5W5clniFWOTYl5FmyHK7rMvoEV0qR9LZnpf2ZKQd8I_jMWgEXfY4o4eRezkKJFye_', content=message)
         response = webhook.execute()
     elif "log" in condition:
         webhook = DiscordWebhook(url='https://discordapp.com/api/webhooks/695470195896221776/t_MGwZ3214BEHF2JboM3TkH8cf3mOSwrePeQSOyH15PN32tBYc2lIS-dpTy79w62xllI', content=message)
