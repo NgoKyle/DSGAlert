@@ -62,7 +62,7 @@ def checkOnlineInventory(name, sku, link):
     ats = r['data']['skus'][0]['atsqty']
     message = "Online\nItem: {}\navailable to ship: {}\n{}".format(name, ats, link)
     print("\n",time.strftime('%a %H:%M:%S'), message)
-    sendDiscord("\n"+time.strftime('%a %H:%M:%S') + " " + message, "log")
+    #sendDiscord("\n"+time.strftime('%a %H:%M:%S') + " " + message, "log")
 
     if(int(ats) > 0):
         sendDiscord(message, "online")
@@ -87,7 +87,7 @@ def checkInstore(zip, name, sku, link):
 
     message = "Curbside\nItem: {}\nAvailability: {}\nzipcode: {}\n{}".format(name, str(qty), location, link)
     print("\n", time.strftime('%a %H:%M:%S'), message)
-    sendDiscord("\n" + time.strftime('%a %H:%M:%S') +  message, "log")
+    #sendDiscord("\n" + time.strftime('%a %H:%M:%S') +  message, "log")
     if '97236' in zip:
         sendDiscord(message, "pdx")
     elif '94806' in zip:

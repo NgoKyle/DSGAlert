@@ -34,7 +34,7 @@ class bestbuy:
 
             message = title.text + " : " + button.text
             print(time.strftime('%a %H:%M:%S'), message)
-            self.sendDiscord(time.strftime('%a %H:%M:%S') + "\n" +  message, 'log')
+            #self.sendDiscord(time.strftime('%a %H:%M:%S') + "\n" +  message, 'log')
 
             if 'Add to Cart' in button.text:
                 self.sendDiscord(message, 'online')
@@ -47,7 +47,7 @@ class bestbuy:
         #except requests.exceptions.RequestException as err:
             #print ("OOps: Something Else",err)
         except:
-            print("Unexpected error:", sys.exc_info()[0])
+            #print("Unexpected error:", sys.exc_info()[0])
             return
 
     def sendDiscord(self, message, condition):
@@ -66,6 +66,8 @@ proxy = {
 }
 
 urls = [
+    'https://www.bestbuy.com/site/logitech-c920-pro-webcam-black/4612476.p?skuId=4612476',
+    'https://www.bestbuy.com/site/logitech-c920s-hd-webcam/6321794.p?skuId=6321794',
     'https://www.bestbuy.com/site/bowflex-selecttech-552-adjustable-dumbbells-black/5845062.p?skuId=5845062',
     'https://www.bestbuy.com/site/bowflex-selecttech-560-adjustable-dumbbells-black/6405085.p?skuId=6405085',
     'https://www.bestbuy.com/site/nordictrack-55-lb-select-a-weight-adjustable-dumbbell-pair-blue-black/6343462.p?skuId=6343462',

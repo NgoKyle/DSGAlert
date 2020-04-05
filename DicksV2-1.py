@@ -20,7 +20,7 @@ class dicks:
 
             message = title.text + " : " + label.text
             print(time.strftime('%a %H:%M:%S'), message, self.count)
-            self.sendDiscord(time.strftime('%a %H:%M:%S') + " " +  message + " " + str(self.count), "log")
+            #self.sendDiscord(time.strftime('%a %H:%M:%S') + " " +  message + " " + str(self.count), "log")
 
             if label is None:
                return
@@ -59,15 +59,8 @@ def main():
     }
 
     urls = [
-        'https://www.dickssportinggoods.com/p/fitness-gear-15-lb-cast-hex-dumbbell-16fgeu15lbcsthxdmdmb/16fgeu15lbcsthxdmdmb',
-        'https://www.dickssportinggoods.com/p/fitness-gear-15-lb-rubber-hex-dumbbell-16fgeufgrbrhxdmbbdmbxx/16fgeufgrbrhxdmbbdmbxx',
-        'https://www.dickssportinggoods.com/p/fitness-gear-20-lb-cast-hex-dumbbell-16fgeu20lbcsthxdmdmb/16fgeu20lbcsthxdmdmb',
-        'https://www.dickssportinggoods.com/p/fitness-gear-20-lb-rubber-hex-dumbbell-16fgeufgrbrhxdmbbdmbxxx/16fgeufgrbrhxdmbbdmbxxx',
-        'https://www.dickssportinggoods.com/p/fitness-gear-25-lb-cast-hex-dumbbell-16fgeu25lbcsthxdmdmb/16fgeu25lbcsthxdmdmb',
-        'https://www.dickssportinggoods.com/p/fitness-gear-25-lb-rubber-hex-dumbbell-16fgeufgrbrhxdmbbdmbxxy/16fgeufgrbrhxdmbbdmbxxy',
-        'https://www.dickssportinggoods.com/p/fitness-gear-30-lb-cast-hex-dumbbell-16fgeu30lbcsthxdmdmb/16fgeu30lbcsthxdmdmb',
-        'https://www.dickssportinggoods.com/p/fitness-gear-35-lb-rubber-hex-dumbbell-16fgeufgrbrhxdmbbdmbxxa/16fgeufgrbrhxdmbbdmbxxa',
-        'https://www.dickssportinggoods.com/p/fitness-gear-35-lb-cast-hex-dumbbell-16fgeu35lbcsthxdmdmb/16fgeu35lbcsthxdmdmb'
+        'https://www.dickssportinggoods.com/p/bowflex-selecttech-552-dumbbells-16bfxuslcttchdmbbslc/16bfxuslcttchdmbbslc',
+        'https://www.dickssportinggoods.com/p/powerblock-50-lbadjustable-dumbbell-set-19pwkupwrblcksprtslc/19pwkupwrblcksprtslc'
     ]
 
     items = []
